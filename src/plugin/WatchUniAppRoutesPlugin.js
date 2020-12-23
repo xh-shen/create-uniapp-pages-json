@@ -2,7 +2,7 @@
  * @Author: shen
  * @Date: 2020-12-23 15:01:26
  * @LastEditors: shen
- * @LastEditTime: 2020-12-23 15:48:32
+ * @LastEditTime: 2020-12-23 16:30:32
  * @Description: 
  */
 
@@ -17,14 +17,14 @@ const config = getConfig();
 class WatchUniAppRoutesPlugin {
   apply(compiler) {
     compiler.hooks.afterCompile.tap('WatchUniAppRoutesPlugin', compilation => {
-      const defaultConfigPath = path.resolve(config.globalPath);
+      const defaultConfigPath = path.resolve(config.defaultConfigFile);
       compilation.fileDependencies.add(defaultConfigPath);
     })
     compiler.hooks.watchRun.tapAsync('WatchUniAppRoutesPlugin', (compiler, cb) => {
       const changedFiles = Object.keys(compiler.watchFileSystem.watcher.mtimes);
       if(changedFiles.length) {
-        const routesPath = routesPath();
-        const defaultConfigPath = path.resolve(config.globalPath);
+        const routesPath = getRoutesPath(config);
+        const defaultConfigPath = path.resolve(config.defaultConfigFile);
         const isChange = routesPath.some(item => changedFiles.includes(item));
         if(isChange || changedFiles.includes(defaultConfigPath)) {
           const routesConfig = getRoutesConfig(routesPath);

@@ -1,6 +1,6 @@
 {
   "name": "create-uniapp-pages-json",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Dynamic generation of uniapp pages.json",
   "main": "src/index.js",
   "repository": "https://github.com/xh-shen/create-uniapp-pages-json.git",
