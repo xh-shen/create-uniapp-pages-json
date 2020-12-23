@@ -2,10 +2,10 @@
   "name": "create-uniapp-pages-json",
   "version": "1.0.0",
   "description": "Dynamic generation of uniapp pages.json",
-  "main": "index.js",
-  "repository": "git@github.com:xh-shen/create-uniapp-pages-json.git",
+  "main": "src/index.js",
+  "repository": "https://github.com/xh-shen/create-uniapp-pages-json.git",
   "bin": {
-    "create-uniapp-pages-json": "./index.js"
+    "create-uniapp-pages-json": "./src/commands/create.js"
   },
   "keywords": [
     "uniapp",
@@ -14,6 +14,9 @@
   "author": "shen <9509394@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "^6.2.1"
+    "chalk": "^4.1.0",
+    "colors": "^1.4.0",
+    "figlet": "^1.5.0",
+    "ora": "^5.1.0"
   }
 }
