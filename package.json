@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "repository": "https://github.com/xh-shen/create-uniapp-pages-json.git",
   "bin": {
-    "create-uniapp-pages-json": "./src/commands/create.js"
+    "create-uniapp-pages-json": "./src/commands/create.js",
+    "pages-config-json-init": "./src/commands/createJson.js"
   },
   "keywords": [
     "uniapp",
