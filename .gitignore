@@ -2,3 +2,5 @@ node_modules/
 *.log
 .idea/
 .DS_Store
+build/
+pages.config.json

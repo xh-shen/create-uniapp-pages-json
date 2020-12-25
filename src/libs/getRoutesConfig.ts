@@ -2,12 +2,18 @@
  * @Author: shen
  * @Date: 2020-12-23 13:57:27
  * @LastEditors: shen
- * @LastEditTime: 2020-12-23 14:41:02
+ * @LastEditTime: 2020-12-24 16:55:22
  * @Description: get module router config
  */
 
-module.exports = routesPath => {
-  let routes = []
+export interface Route {
+  path: string;
+  style?: any;
+  [key: string]: string;
+}
+
+export default (routesPath: string[]) : Route[] => {
+  let routes:Route[] = []
   routesPath.forEach(fullPath => {
     delete require.cache[require.resolve(fullPath)];
     const config = require(fullPath);

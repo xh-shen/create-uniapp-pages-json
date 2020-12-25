@@ -3,23 +3,25 @@
  * @Author: shen
  * @Date: 2020-12-23 10:56:46
  * @LastEditors: shen
- * @LastEditTime: 2020-12-23 15:57:38
+ * @LastEditTime: 2020-12-24 16:28:45
  * @Description: 
  */
 
 "use strict";
-const { promisify } = require('util');
-const figlet = promisify(require('figlet'));
-const chalk = require('chalk');
-const getConfig = require('../libs/getConfig');
-const getRoutesPath = require('../libs/getRoutesPath');
-const getRoutesConfig = require('../libs/getRoutesConfig');
-const generatePagesJson = require('../libs/generatePagesJson');
+import { promisify } from 'util';
+import figlet from 'figlet';
+import chalk from 'chalk';
+import getConfig from '../libs/getConfig';
+import getRoutesPath from '../libs/getRoutesPath';
+import getRoutesConfig from '../libs/getRoutesConfig';
+import generatePagesJson from '../libs/generatePagesJson';
+
+const figletPromisify = promisify(figlet);
 
 const log = content => console.log(chalk.green(content));
 
 (async function() {
-  const data = await figlet('shen');
+  const data = await figletPromisify('shen');
   log(data)
   const config = getConfig();
   const ora = require('ora')

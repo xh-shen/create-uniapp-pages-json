@@ -2,15 +2,21 @@
  * @Author: shen
  * @Date: 2020-12-23 14:43:57
  * @LastEditors: shen
- * @LastEditTime: 2020-12-23 14:59:32
+ * @LastEditTime: 2020-12-24 17:00:40
  * @Description: generater pages.json file
  */
 
-const path = require('path')
-const fs = require('fs')
+import path from 'path';
+import * as fs from 'fs';
+import { Route } from './getRoutesConfig';
 
- module.exports = (rootPath, globalPath, routes) => {
-  let defaultConfig = {};
+export interface PagesConfig {
+  pages?: Route[];
+  [key: string]: any;
+}
+
+export default (rootPath: string, globalPath: string, routes: Route[]): void => {
+  let defaultConfig:PagesConfig = {};
   const pagesPath = path.resolve(rootPath, 'pages.json');
   const defaultConfigPath = path.resolve(globalPath);
   if (fs.existsSync(defaultConfigPath)) {

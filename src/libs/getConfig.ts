@@ -2,18 +2,24 @@
  * @Author: shen
  * @Date: 2020-12-23 13:46:09
  * @LastEditors: shen
- * @LastEditTime: 2020-12-24 08:16:50
+ * @LastEditTime: 2020-12-24 16:55:02
  * @Description: 
  */
+import path from 'path';
+import * as fs from 'fs'
+import colors from 'colors';
+import defaultConfig from './pages.config.json';
 
-const path = require('path');
-const fs = require('fs');
-const colors = require('colors');
-const defaultConfig = require('./pages.config.json');
+export interface Config {
+  rootPath: string;
+  modulePath: string;
+  defaultConfigFile: string;
+  routeFileName: string;
+}
 
-let cacheConfig;
+let cacheConfig: Config;
 
-module.exports = () => {
+export default () : Config => {
   if (cacheConfig) {
     return cacheConfig;
   }
@@ -25,7 +31,7 @@ module.exports = () => {
     process.exit(1);
   }
 
-  let config = require(targetFile);
+  let config = require(targetFile)  as Config;
 
   if (!config.defaultConfigFile) {
     console.warn(colors.red('You are required to provide defaultConfigFile'));
@@ -37,7 +43,7 @@ module.exports = () => {
     process.exit(1);
   }
 
-  config = Object(defaultConfig, config);
+  config = Object.assign(defaultConfig, config);
 
   cacheConfig = config;
 

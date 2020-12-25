@@ -3,13 +3,13 @@
  * @Author: shen
  * @Date: 2020-12-24 08:19:51
  * @LastEditors: shen
- * @LastEditTime: 2020-12-24 08:28:44
+ * @LastEditTime: 2020-12-24 16:29:51
  * @Description: 
  */
 
-const path = require('path');
-const fs = require('fs');
-const colors = require('colors');
+import path from 'path';
+import fs from 'fs';
+import colors from 'colors';
 
 const targetFile = path.resolve('pages.config.json');
 
