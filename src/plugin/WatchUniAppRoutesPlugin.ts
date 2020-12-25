@@ -2,7 +2,7 @@
  * @Author: shen
  * @Date: 2020-12-23 15:01:26
  * @LastEditors: shen
- * @LastEditTime: 2020-12-25 08:18:06
+ * @LastEditTime: 2020-12-25 08:50:44
  * @Description: 
  */
 import path from 'path';
@@ -14,7 +14,7 @@ import generatePagesJson from '../libs/generatePagesJson';
 const config: Config = getConfig();
 const defaultConfigPath: string = path.resolve(config.defaultConfigFile);
 
-export default class WatchUniAppRoutesPlugin {
+class WatchUniAppRoutesPlugin {
   apply(compiler) {
     compiler.hooks.afterCompile.tap('WatchUniAppRoutesPlugin', compilation => {
       compilation.fileDependencies.add(defaultConfigPath);
@@ -33,3 +33,5 @@ export default class WatchUniAppRoutesPlugin {
     });
   }
 }
+
+module.exports = WatchUniAppRoutesPlugin
