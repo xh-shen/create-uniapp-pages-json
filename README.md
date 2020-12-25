@@ -142,10 +142,10 @@ npx create-uniapp-pages-json
 
 # Step 4
 
-可选，如果需要在开发中实时监听`routeFileName`配置文件的变化，还需要在`vue.config.js`文件中使用`webpack`插件
+可选，如果需要在开发中实时监听`routeFileName | defaultConfigFile`配置文件的变化，还需要在`vue.config.js`文件中使用`webpack`插件
 
 ```js
-const WatchUniAppRoutesPlugin = require('create-uniapp-pages-json');
+const { WatchUniAppRoutesPlugin } = require('create-uniapp-pages-json');
 
 module.exports = {
   configureWebpack: {
